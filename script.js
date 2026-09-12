@@ -376,7 +376,7 @@ whatsappCheckoutBtn.addEventListener('click', async () => {
 
     doc.setFontSize(14);
     doc.setTextColor(15, 23, 42);
-    doc.text("CyV DISTRIBUIDORA", 14, 32);
+    doc.text("C&V DISTRIBUIDORA", 14, 32);
     
     doc.setFontSize(8);
     doc.setTextColor(148, 163, 184);
@@ -439,7 +439,7 @@ whatsappCheckoutBtn.addEventListener('click', async () => {
 
     doc.setFontSize(8);
     doc.setTextColor(100);
-    doc.text("Gracias por elegir CyV Distribuidora. Conserve este comprobante para su pedido por WhatsApp.", 14, finalY + 25);
+    doc.text("Gracias por elegir C&V Distribuidora. Conserve este comprobante para su pedido por WhatsApp.", 14, finalY + 25);
 
     const fileName = `Presupuesto_CV_${orderNum}.pdf`;
     doc.save(fileName);
@@ -451,7 +451,7 @@ whatsappCheckoutBtn.addEventListener('click', async () => {
     cartModal.classList.remove('open');
     fetchProducts(true);
 
-    const waText = `Hola CyV Distribuidora, acabo de generar mi presupuesto (Pedido #${orderNum}) por un total de ${formatARS(totalAmount)}.\n\nAdjunto el archivo PDF con la factura detallada.`;
+    const waText = `Hola C&V Distribuidora, acabo de generar mi presupuesto (Pedido #${orderNum}) por un total de ${formatARS(totalAmount)}.\n\nAdjunto el archivo PDF con la factura detallada.`;
     window.open(`https://wa.me/5493804722571?text=${encodeURIComponent(waText)}`, '_blank');
 });
 
