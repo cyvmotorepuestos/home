@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyV Distribuidora - Moto Repuestos por mayor y menor</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome para iconos modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR / ENCABEZADO -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Logo.jpg" alt="Logo CyV" class="brand-logo-icon" id="brandLogoImg">
+                <div class="logo-text-group">
+                    <span>CyV <strong>Distribuidora</strong></span>
+                    <span class="logo-subtitle-small">MOTO REPUESTOS</span>
+                </div>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio" class="nav-btn active"><span>Inicio</span></a>
+                <a href="#catalogo" class="nav-btn"><span>Catálogo</span></a>
+                <a href="#contacto" class="nav-btn"><span>Contacto</span></a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-toggle-btn" id="cartToggleBtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <div class="menu-hamburger" id="menuHamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN INICIO -->
+    <section id="inicio" class="hero-section">
+        <!-- CARRUSEL DE IMÁGENES -->
+        <div class="carousel-container">
+            <div class="carousel-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1920&q=80');">
+                <div class="carousel-content">
+                    <h1>Repuestos de Motos al por Mayor y Menor</h1>
+                    <p>Calidad garantizada, envíos a domicilio y atención personalizada.</p>
+                    <a href="#catalogo" class="cta-btn" id="ctaCatalogoBtn">Ver Catálogo</a>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80');">
+                <div class="carousel-content">
+                    <h1>Variedad en Motor, Transmisión y Electricidad</h1>
+                    <p>Todo lo que tu taller o local necesita en un solo lugar.</p>
+                    <a href="#catalogo" class="cta-btn" id="ctaCatalogoBtn2">Explorar Productos</a>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1609630875171-b1321777ff1e?auto=format&fit=crop&w=1920&q=80');">
+                <div class="carousel-content">
+                    <h1>Los Mejores Precios del Mercado</h1>
+                    <p>Stock permanente y actualización directa desde nuestra base de datos.</p>
+                    <a href="#catalogo" class="cta-btn" id="ctaCatalogoBtn3">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+
+        <!-- PRODUCTOS DESTACADOS -->
+        <div class="featured-container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-bolt"></i> Productos Destacados en Stock</h2>
+                <p>Nuestros artículos más solicitados con disponibilidad inmediata</p>
+            </div>
+            <div class="featured-grid" id="featuredGrid">
+                <!-- Se inyecta por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CATÁLOGO -->
+    <section id="catalogo" class="catalog-section" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-boxes-stacked"></i> Catálogo General de Repuestos</h2>
+                <p>Busca y filtra entre cientos de repuestos profesionales</p>
+            </div>
+
+            <!-- BUSCADOR Y FILTROS -->
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre de repuesto...">
+                </div>
+                <div class="category-filters" id="categoryFilters">
+                    <button class="filter-chip active" data-category="Todos">Todos</button>
+                </div>
+            </div>
+
+            <!-- GRILLA DE PRODUCTOS -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Estado de carga -->
+                <div class="loading-state">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <p>Cargando productos...</p>
+                </div>
+            </div>
+
+            <!-- BOTÓN CARGAR MÁS -->
+            <div class="load-more-container" id="loadMoreContainer" style="display: none; text-align: center; margin-top: 40px;">
+                <button class="cta-btn" id="loadMoreBtn">
+                    <i class="fa-solid fa-plus"></i> Cargar más productos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-headset"></i> Contacto y Ubicación</h2>
+                <p>Estamos a tu disposición para consultas comerciales y ventas mayoristas</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h3>Horarios de Atención</h3>
+                    <p>Lunes a Viernes: 09:00 – 22:00 hs</p>
+                    <p>Sábados y Domingos: 10:00 – 19:00 hs</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>Local Comercial</h3>
+                    <p>La Rioja, Argentina</p>
+                    <a href="https://maps.app.goo.gl/DgruiBoMpUjXVBqH6" target="_blank" class="contact-link-btn">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver en Maps
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <h3>Redes Sociales</h3>
+                    <p>Seguinos en Instagram para novedades y ofertas exclusivas</p>
+                    <a href="https://instagram.com/cyv.repuestos" target="_blank" class="contact-link-btn ig-btn">
+                        <i class="fa-brands fa-instagram"></i> Ir a Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 <strong>CyV Distribuidora</strong>. Todos los derechos reservados.</p>
+            <p>Moto Repuestos por Mayor y Menor</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/543804722571?text=Hola%20CyV%20Distribuidora,%20quiero%20consultar%20por%20repuestos." class="whatsapp-float" target="_blank" title="Escribinos por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- MODAL / CARRITO DE COMPRAS -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3><i class="fa-solid fa-cart-shopping"></i> Tu Carrito de Compras</h3>
+                <button class="close-cart" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-items" id="cartItemsList">
+                <p class="empty-cart-msg">El carrito está vacío</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotalPrice">$0.00</span>
+                </div>
+                <button class="checkout-btn" id="whatsappCheckoutBtn" disabled>
+                    <i class="fa-solid fa-file-invoice-dollar"></i> Generar Factura y Enviar a WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Librería jsPDF y autoTable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
